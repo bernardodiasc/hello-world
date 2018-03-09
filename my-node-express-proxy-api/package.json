@@ -1,0 +1,29 @@
+{
+  "name": "react-backend",
+  "version": "0.0.1",
+  "description": "Express backend and React frontend boilerplate",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bernardodiasc/react-backend.git"
+  },
+  "author": "Bernardo Dias",
+  "bugs": {
+    "url": "https://github.com/bernardodiasc/react-backend/issues"
+  },
+  "homepage": "https://github.com/bernardodiasc/react-backend#readme",
+  "scripts": {
+    "start": "PORT=3001 node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "serve-favicon": "~2.4.2"
+  }
+}
