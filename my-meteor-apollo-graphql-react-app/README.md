@@ -100,4 +100,9 @@ $ tree -d -I node_modules
 - `npm install --save lodash` and use lodash's `merge` to merge all resolvers
   - alternatively this could be solved with `mergeSchemas` from `graphql-tools`
   - also alternatively `bundle` from https://github.com/lucasconstantino/graphql-modules could be used
--
+
+### Creating A Collection and Using Our Database
+
+- `touch imports/api/resolutions/resolutions.js`
+- define new mongo collection "resolutions"
+- return fetch from collection on resolver
