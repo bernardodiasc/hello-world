@@ -56,3 +56,10 @@ $ tree -d -I node_modules
 - create `typeDefs` and `resolvers`
 - create `schema` using Apollo's `makeExecutableSchema({ typeDefs, resolvers })`
 - run the Apollo server with the schema `createApolloServer({ schema })`
+
+### Connecting React To Apollo & Apollo DevTools
+
+- `npm install --save apollo-client-preset react-apollo graphql-tag`
+- setup and wrap App with Apollo provider
+- https://github.com/apollographql/apollo-client-devtools
+- 
