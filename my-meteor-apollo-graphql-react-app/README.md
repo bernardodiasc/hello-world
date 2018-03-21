@@ -92,3 +92,12 @@ $ tree -d -I node_modules
 - include `resolutions: [Resolution]` in the `type Query`
 - include `resolutions` (with fields) in the React component GraphQL query
 - prevent react to try to use data not yet available with `data.loading`
+
+### Organizing Our Resolvers
+
+- `touch imports/api/resolutions/resolvers.js`
+- move resolutions resolvers object from `register-api.js` to `api/resolutions/resolvers.js`
+- `npm install --save lodash` and use lodash's `merge` to merge all resolvers
+  - alternatively this could be solved with `mergeSchemas` from `graphql-tools`
+  - also alternatively `bundle` from https://github.com/lucasconstantino/graphql-modules could be used
+-
