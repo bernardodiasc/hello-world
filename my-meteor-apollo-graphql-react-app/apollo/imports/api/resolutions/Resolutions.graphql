@@ -1,0 +1,4 @@
+type Resolutions {
+  _id: String!
+  name: String!
+}

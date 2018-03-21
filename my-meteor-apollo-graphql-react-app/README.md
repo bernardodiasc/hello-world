@@ -6,6 +6,8 @@ Playlist: https://www.youtube.com/playlist?list=PLLnpHn493BHFTDL9M1PKnxQwBwOZ8J-
 
 Just some developer notes when following the tutorials.
 
+Commits history: https://github.com/bernardodiasc/hello-world/commits/master/my-meteor-apollo-graphql-react-app
+
 ### Creating Our Project & Setup
 
 - https://www.meteor.com/
@@ -52,7 +54,7 @@ $ tree -d -I node_modules
 
 ### Our First Schema & Query
 
-- http://localhost:3000/graphiql is up and running at this point
+- http://localhost:3000/graphiql is already up and running at this point
 - create `typeDefs` and `resolvers`
 - create `schema` using Apollo's `makeExecutableSchema({ typeDefs, resolvers })`
 - run the Apollo server with the schema `createApolloServer({ schema })`
@@ -67,3 +69,18 @@ $ tree -d -I node_modules
 ### GraphQL Queries in React
 
 - create graphql query and connect a react component with it
+
+### GraphQL Schema Files
+
+- The tutorial will be creating a "resolutions" app, designed similarly as a to-do list.
+- `mkdir imports/api/resolutions`
+- `touch imports/api/resolutions/Resolutions.graphql`
+- Add syntax highlight to the editor https://github.com/dncrews/GraphQL-SublimeText3
+- create Resolutions GraphQL type definition on `Resolutions.graphql`
+- `touch imports/startup/server/register-api.js`
+- on `register-api.js` import `ResolutionsSchema` from `Resolutions.graphql`
+- import `register-api.js` on `startup/server/index.js`
+- `touch .babelrc` and include `babel-plugin-inline-import` plugin
+- `npm install --save-dev babel-plugin-inline-import`
+- move the existing code that was on `startup/server/index.js` to `register-api.js`
+- make `typeDefs` to be an array of schemas
