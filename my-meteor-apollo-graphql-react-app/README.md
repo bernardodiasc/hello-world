@@ -2,7 +2,9 @@
 
 Playlist: https://www.youtube.com/playlist?list=PLLnpHn493BHFTDL9M1PKnxQwBwOZ8J-h4
 
-## Some Steps
+## Step-by-step
+
+Just some developer notes when following the tutorials.
 
 ### Creating Our Project & Setup
 
@@ -34,7 +36,16 @@ $ tree -d -I node_modules
   - meteor will automatically load this file
   - this file is used to import all the client modules
 - `touch imports/startup/client/index.js`
-  - this is a regular React renderer that renders with `Meteor.startup()`
+  - this is a regular React application that renders with `Meteor.startup()`
 - `touch imports/ui/App.js`
   - regular React ui components that will be used in the client app
-  
+
+### Creating Our Apollo GraphQL Server
+
+- `npm install --save apollo-client graphql-server-express express graphql graphql-tools body-parser`
+- include `apollo` in `.meteor/packages`
+- `touch server/init.js`
+  - meteor will automatically load this file
+  - this file is used to import all the server modules
+- `touch imports/startup/server/index.js`
+  - this is the Apollo server initialization
