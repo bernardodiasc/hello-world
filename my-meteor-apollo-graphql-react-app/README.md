@@ -61,5 +61,9 @@ $ tree -d -I node_modules
 
 - `npm install --save apollo-client-preset react-apollo graphql-tag`
 - setup and wrap App with Apollo provider
-- https://github.com/apollographql/apollo-client-devtools
-- 
+- Apollo Client DevTools https://github.com/apollographql/apollo-client-devtools
+- GraphQL Network https://github.com/Ghirro/graphql-network
+
+### GraphQL Queries in React
+
+- create graphql query and connect a react component with it
