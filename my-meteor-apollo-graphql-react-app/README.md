@@ -106,3 +106,9 @@ $ tree -d -I node_modules
 - `touch imports/api/resolutions/resolutions.js`
 - define new mongo collection "resolutions"
 - return fetch from collection on resolver
+
+### Introduction To Mutations
+
+- include Mutation resolvers on `imports/api/resolutions/resolvers.js`
+- include `creteResolution()` on resolutions mutation
+- include `type Mutation` on resolutions schema with field `createResolution: Resolution`
