@@ -84,3 +84,11 @@ $ tree -d -I node_modules
 - `npm install --save-dev babel-plugin-inline-import`
 - move the existing code that was on `startup/server/index.js` to `register-api.js`
 - make `typeDefs` to be an array of schemas
+  - the idea of this is to make the application scalable. most tutorials just demo all the stuff together and in this step was well explained the different pattern, from a hello-world app to a real app
+
+### Object Queries
+
+- include `resolutions()` in the resolvers returning an array of objects
+- include `resolutions: [Resolution]` in the `type Query`
+- include `resolutions` (with fields) in the React component GraphQL query
+- prevent react to try to use data not yet available with `data.loading`
