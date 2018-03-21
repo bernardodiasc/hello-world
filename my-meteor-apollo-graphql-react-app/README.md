@@ -112,3 +112,13 @@ $ tree -d -I node_modules
 - include Mutation resolvers on `imports/api/resolutions/resolvers.js`
 - include `creteResolution()` on resolutions mutation
 - include `type Mutation` on resolutions schema with field `createResolution: Resolution`
+- create new ui component `ResolutionForm`
+- create graphql mutation query and wrap the react component with it
+
+### Mutation Variables & Data Refetch
+
+- pass variable `$name` on the `createResolution` mutation on `ResolutionForm` component
+- pass the value from input as variable into `createResolution` function
+- declare the variable `name` in the mutation schema of `createResolution`
+- make the mutation resolver to insert received data on database
+- include `data.refetch` from `App` on `ResolutionForm` component and call it on promised event after insertion of the new data

@@ -5,8 +5,7 @@ import merge from 'lodash/merge'
 import resolutionsSchema from '../../api/resolutions/Resolutions.graphql'
 import resolutionsResolvers from '../../api/resolutions/resolvers'
 
-//
-
+// yoyo
 const hiSchema = `
 type Query {
   hi: String
