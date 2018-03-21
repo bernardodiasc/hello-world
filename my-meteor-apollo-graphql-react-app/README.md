@@ -49,3 +49,10 @@ $ tree -d -I node_modules
   - this file is used to import all the server modules
 - `touch imports/startup/server/index.js`
   - this is the Apollo server initialization
+
+### Our First Schema & Query
+
+- http://localhost:3000/graphiql is up and running at this point
+- create `typeDefs` and `resolvers`
+- create `schema` using Apollo's `makeExecutableSchema({ typeDefs, resolvers })`
+- run the Apollo server with the schema `createApolloServer({ schema })`
