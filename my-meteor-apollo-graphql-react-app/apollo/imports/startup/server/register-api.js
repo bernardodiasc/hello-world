@@ -6,15 +6,21 @@ import resolutionsSchema from '../../api/resolutions/Resolutions.graphql'
 import resolutionsResolvers from '../../api/resolutions/resolvers'
 import usersSchema from '../../api/users/User.graphql'
 import usersResolvers from '../../api/users/resolvers'
+import goalsSchema from '../../api/goals/Goal.graphql'
+import goalsResolvers from '../../api/goals/resolvers'
+
+// yo
 
 const typeDefs = [
   resolutionsSchema,
   usersSchema,
+  goalsSchema,
 ]
 
 const resolvers = merge(
   resolutionsResolvers,
   usersResolvers,
+  goalsResolvers,
 )
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })

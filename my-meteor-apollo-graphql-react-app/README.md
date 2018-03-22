@@ -180,3 +180,17 @@ $ tree -d -I node_modules
 ### Custom Resolvers
 
 - include `User` resolver at `users/resolvers.js` with a `email` method
+
+### Our Goals Schema Resolvers & Collection
+
+- `mkdir imports/api/goals`
+- `touch imports/api/goals/resolvers.js`
+- `touch imports/api/goals/Goal.graphql`
+- `touch imports/api/goals/goals.js`
+- create mongo collection at `goals.js`
+- create type Goal at the GraphQL schema
+- create the resolvers on Goals for the Mutation `createGoal`
+- create the type Mutation on Goal schema
+- include Goal schema and resolvers in the `register-api.js`
+- `touch imports/ui/GoalForm.js` and create the form component there very similar to `ResolutionForm`
+- add the GoalForm into App
