@@ -237,3 +237,8 @@ There was an issue with babel preset when saving `.graphql` files, the Meteor wa
 
 - verify if `userId` is valid and only execute Mutations if it's, otherwise throw error
 - display UI state of errors
+
+### Finalizing Our Interface & Wrap Up
+
+- display UI state variations for logged and guest users
+- lots of React UI tweaks (I skipped on my code)
