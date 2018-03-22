@@ -29,7 +29,11 @@ const App = ({ loading, resolutions, user, client }) => {
       <ul>
         {resolutions.map(resolution => (
           <li key={resolution._id}>
-            {resolution.name}
+            <span style={{
+              textDecoration: resolution.completed ? 'line-through' : 'none'
+            }}>
+              {resolution.name}
+            </span>
             <ul>
               {resolution.goals.map(goal => (
                 <Goal goal={goal} key={goal._id} />
@@ -43,11 +47,12 @@ const App = ({ loading, resolutions, user, client }) => {
   )
 }
 
-const hiQuery = gql`
+const appQuery = gql`
   query Resolutions {
     resolutions {
       _id
       name
+      completed
       goals {
         _id
         name
@@ -60,6 +65,6 @@ const hiQuery = gql`
   }
 `
 
-export default graphql(hiQuery, {
+export default graphql(appQuery, {
   props: ({ data }) => ({ ...data })
 })(withApollo(App))

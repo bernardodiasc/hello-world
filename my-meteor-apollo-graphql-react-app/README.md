@@ -221,3 +221,8 @@ There was an issue with babel preset when saving `.graphql` files, the Meteor wa
 - `meteor add swydo:graphql`
 - `npm uninstall --save-dev babel-plugin-inline-import`
 - `rm .babelrc`
+
+### Custom Resolvers For Useful Data
+
+- add new field `completed` at `type Resolution` schema
+- add new method `completed` at Resolution resolver
