@@ -177,3 +177,6 @@ $ tree -d -I node_modules
 - move type Query of each schema to it's graphql file
 - prepend `extend` keyword at `type Query`
 
+### Custom Resolvers
+
+- include `User` resolver at `users/resolvers.js` with a `email` method
