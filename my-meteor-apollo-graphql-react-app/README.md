@@ -160,4 +160,14 @@ $ tree -d -I node_modules
 - pass down `client` prop to forms
 - on forms, on submit functions, if there's no errors, run `this.props.client.resetStore()`
 - test the app, when register, log in or log out, the store will be updated
-- 
+ 
+### User Schema & Query
+
+- `mkdir imports/api/users`
+- `touch imports/api/users/User.graphql`
+- include GraphQL type of User in the file
+- import User schema on `register-api.js`
+- `touch imports/api/users/resolvers.js`
+- create the User resolver Query
+- import User resolvers on `register-api.js`
+- update `App.js` GraphQL query and treat UI variations with given `user` prop
