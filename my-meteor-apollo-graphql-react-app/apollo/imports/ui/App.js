@@ -51,6 +51,7 @@ const hiQuery = gql`
       goals {
         _id
         name
+        completed
       }
     }
     user {

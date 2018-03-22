@@ -206,4 +206,18 @@ $ tree -d -I node_modules
 - `touch imports/ui/resolutions/Goals.js`
 - create Goal component and declare it on each individual resolution at App
 - include `refetchQueries` for `Resolutions` at `GoalForm` component
-- 
+
+### Writing A Toggle Mutation
+
+- create `toggleGoal` Mutation in Goal resolver
+- include `toggleGoal` Mutation in Goal schema
+- wrap Goal component with graphql mutation `toggleGoal`
+- include checkbox `onChange` to trigger `toggleGoal` passing the goal `_id`
+
+#### Extra note:
+
+There was an issue with babel preset when saving `.graphql` files, the Meteor wasn't reloading application automatically. To fix this issue I had to remove the babel plugin and include a meteor package:
+
+- `meteor add swydo:graphql`
+- `npm uninstall --save-dev babel-plugin-inline-import`
+- `rm .babelrc`
