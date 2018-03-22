@@ -13,6 +13,7 @@ export default {
     createResolution(obj, args, context) {
       const resolutionId = Resolutions.insert({
         name: args.name,
+        userId: context.userId,
       })
       return Resolutions.findOne(resolutionId)
     }

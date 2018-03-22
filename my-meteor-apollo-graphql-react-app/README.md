@@ -151,3 +151,13 @@ $ tree -d -I node_modules
 - create the `authLink` using `ApolloLink`
 - on `client` const, update to `link: from([authLink, httpLink])`
 - now on Resolution's `resolver.js` we can find `userId` in the `context` and filter values with that
+
+### User Inserts & client.resetStore in Apollo
+
+- include `userId` in the Resolution mutation `createResolution`
+- import `withApollo` from `react-apollo` on `App.js`
+- include `client.resetStore()` in the logout onclick function
+- pass down `client` prop to forms
+- on forms, on submit functions, if there's no errors, run `this.props.client.resetStore()`
+- test the app, when register, log in or log out, the store will be updated
+- 
