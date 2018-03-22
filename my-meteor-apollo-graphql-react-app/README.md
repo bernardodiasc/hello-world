@@ -128,5 +128,20 @@ $ tree -d -I node_modules
 - give a name for main query in `App.js`, as `query Resolution {...}`
 - include `options: { refetchQueries: ['Resolution'] }` in `ResolutionForm` graphql HOC
 - notice that `this.props.refetch()` is no longer needed, since it's refetching the query automatically now
+- in the `App.js` graphql HOC, include extra argument object with `props` mapping `data`
 
+### Basic Meteor Accounts System
 
+- add `accounts-password` into `.meteor/packages`
+- an error will prompt to run `meteor npm install --save bcrypt`, then do it
+- the `Accounts` variable are now available globaly in the application
+  - or it can be implicit imported as `import { Accounts } from 'meteor/accounts-base'`
+- `touch imports/ui/RegisterForm.js` and create a simple register form
+- write the `registerUser` method using Meteor's `Accounts.createUser`
+- `touch imports/ui/LoginForm.js` and create a simple login form
+- write the `loginUser` method using `Meteor.loginWithPassword`
+- test the app by registering a user
+  - in the browser console type `Meteor.userId()` to see the logged user ID
+  - in the browser console type `Meteor.logout()` to log out the session
+  - try to log in with your newly created credentials, and confirm in the console with `Meteor.userId()`
+- 
