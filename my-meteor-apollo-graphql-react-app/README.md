@@ -171,3 +171,9 @@ $ tree -d -I node_modules
 - create the User resolver Query
 - import User resolvers on `register-api.js`
 - update `App.js` GraphQL query and treat UI variations with given `user` prop
+
+### Extending Schema Types
+
+- move type Query of each schema to it's graphql file
+- prepend `extend` keyword at `type Query`
+

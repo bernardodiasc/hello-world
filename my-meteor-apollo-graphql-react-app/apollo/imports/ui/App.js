@@ -6,11 +6,11 @@ import ResolutionForm from './ResolutionForm'
 import RegisterForm from './RegisterForm'
 import LoginForm from './LoginForm'
 
-const App = ({ loading, hi, resolutions, user, client }) => {
+const App = ({ loading, resolutions, user, client }) => {
   if (loading) return null
   return (
     <div>
-      <h1>{hi}</h1>
+      <h1>Hello World</h1>
       {user._id ? (
         <button onClick={() => {
           Meteor.logout()
@@ -35,7 +35,6 @@ const App = ({ loading, hi, resolutions, user, client }) => {
 
 const hiQuery = gql`
   query Resolutions {
-    hi
     resolutions {
       _id
       name

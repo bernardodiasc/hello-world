@@ -7,32 +7,12 @@ import resolutionsResolvers from '../../api/resolutions/resolvers'
 import usersSchema from '../../api/users/User.graphql'
 import usersResolvers from '../../api/users/resolvers'
 
-//yoyoyo
-
-const hiSchema = `
-type Query {
-  hi: String
-  resolutions: [Resolution]
-  user: User
-}
-`
-
 const typeDefs = [
-  hiSchema,
   resolutionsSchema,
   usersSchema,
 ]
 
-const hiResolvers = {
-  Query: {
-    hi() {
-      return 'Hello World!'
-    }
-  }
-}
-
 const resolvers = merge(
-  hiResolvers,
   resolutionsResolvers,
   usersResolvers,
 )
