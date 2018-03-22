@@ -232,3 +232,8 @@ There was an issue with babel preset when saving `.graphql` files, the Meteor wa
 ### Fixing Our "Completed" Resolver
 
 - upgrade Resolution's `completed` resolver
+
+### Securing Our Mutations
+
+- verify if `userId` is valid and only execute Mutations if it's, otherwise throw error
+- display UI state of errors

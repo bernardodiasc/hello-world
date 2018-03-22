@@ -3,12 +3,15 @@ import Goals from './goals'
 export default {
   Mutation: {
     createGoal(obj, args, context) {
-      const goalId = Goals.insert({
-        name: args.name,
-        resolutionId: args.resolutionId,
-        completed: false,
-      })
-      return Goals.findOne(goalId)
+      if (context.userId) {
+        const goalId = Goals.insert({
+          name: args.name,
+          resolutionId: args.resolutionId,
+          completed: false,
+        })
+        return Goals.findOne(goalId)
+      }
+      throw new Error('Unauthorized')
     },
     toggleGoal(obj, args) {
       const goal = Goals.findOne(args._id)
