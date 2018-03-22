@@ -144,4 +144,10 @@ $ tree -d -I node_modules
   - in the browser console type `Meteor.userId()` to see the logged user ID
   - in the browser console type `Meteor.logout()` to log out the session
   - try to log in with your newly created credentials, and confirm in the console with `Meteor.userId()`
-- 
+
+### Connecting Meteor Accounts To Apollo
+
+- `import { ApolloLink, from } from 'apollo-link'` at `imports/startup/client/index.js`
+- create the `authLink` using `ApolloLink`
+- on `client` const, update to `link: from([authLink, httpLink])`
+- now on Resolution's `resolver.js` we can find `userId` in the `context` and filter values with that

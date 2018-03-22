@@ -2,8 +2,10 @@ import Resolutions from './resolutions'
 
 export default {
   Query: {
-    resolutions() {
-      return Resolutions.find({}).fetch()
+    resolutions(obj, args, context) {
+      return Resolutions.find({
+        userId: context.userId
+      }).fetch()
     }
   },
 
