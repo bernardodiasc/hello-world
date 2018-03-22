@@ -9,7 +9,7 @@ import usersResolvers from '../../api/users/resolvers'
 import goalsSchema from '../../api/goals/Goal.graphql'
 import goalsResolvers from '../../api/goals/resolvers'
 
-// yo
+// yoyo
 
 const typeDefs = [
   resolutionsSchema,

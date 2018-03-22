@@ -194,3 +194,9 @@ $ tree -d -I node_modules
 - include Goal schema and resolvers in the `register-api.js`
 - `touch imports/ui/GoalForm.js` and create the form component there very similar to `ResolutionForm`
 - add the GoalForm into App
+
+### Relational Data Resolvers
+
+- add `goals` field to `Resolutions` type schema
+- create `Resolution` resolver in `resolutions/resolvers.js`
+- 
