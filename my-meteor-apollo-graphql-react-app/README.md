@@ -198,5 +198,12 @@ $ tree -d -I node_modules
 ### Relational Data Resolvers
 
 - add `goals` field to `Resolutions` type schema
-- create `Resolution` resolver in `resolutions/resolvers.js`
+- create `Resolution` resolver in `resolutions/resolvers.js` to fetch `goals`
+
+### Relational Data Query
+
+- `mkdir imports/ui/resolutions`
+- `touch imports/ui/resolutions/Goals.js`
+- create Goal component and declare it on each individual resolution at App
+- include `refetchQueries` for `Resolutions` at `GoalForm` component
 - 
