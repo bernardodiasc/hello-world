@@ -213,6 +213,7 @@ $ tree -d -I node_modules
 - include `toggleGoal` Mutation in Goal schema
 - wrap Goal component with graphql mutation `toggleGoal`
 - include checkbox `onChange` to trigger `toggleGoal` passing the goal `_id`
+- make ui to display state changes
 
 #### Extra note:
 
@@ -226,3 +227,8 @@ There was an issue with babel preset when saving `.graphql` files, the Meteor wa
 
 - add new field `completed` at `type Resolution` schema
 - add new method `completed` at Resolution resolver
+- make ui to display state changes
+
+### Fixing Our "Completed" Resolver
+
+- upgrade Resolution's `completed` resolver
