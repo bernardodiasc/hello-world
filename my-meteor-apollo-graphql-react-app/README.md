@@ -122,3 +122,11 @@ $ tree -d -I node_modules
 - declare the variable `name` in the mutation schema of `createResolution`
 - make the mutation resolver to insert received data on database
 - include `data.refetch` from `App` on `ResolutionForm` component and call it on promised event after insertion of the new data
+
+### Auto Refetching & Query Prop Assignment
+
+- give a name for main query in `App.js`, as `query Resolution {...}`
+- include `options: { refetchQueries: ['Resolution'] }` in `ResolutionForm` graphql HOC
+- notice that `this.props.refetch()` is no longer needed, since it's refetching the query automatically now
+
+
