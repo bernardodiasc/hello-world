@@ -4,7 +4,7 @@
 
 The intent here is a user flow vizualization.
 
-- Live demo: https://codesandbox.io/s/j358ywy71v
+- Live demo: https://codepen.io/bernardodiasc/pen/oOoGGe
 - Source code: https://github.com/bernardodiasc/hello-world/tree/master/my-d3-diagrams
 
 
