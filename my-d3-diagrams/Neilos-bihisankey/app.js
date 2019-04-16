@@ -216,18 +216,32 @@ function update () {
     const rightLinks = []
     const leftLinks = []
 
+    function getRightLinks(element) {
+      if (element.target.rightLinks.length > 0) {
+        element.target.rightLinks.forEach(function(rightLink) {
+          rightLinks.push(rightLink)
+          getRightLinks(rightLink)
+        })
+      }
+    }
+
+    function getLeftLinks(element) {
+      if (element.source.leftLinks.length > 0) {
+        element.source.leftLinks.forEach(function(leftLink) {
+          leftLinks.push(leftLink)
+          getLeftLinks(leftLink)
+        })
+      }
+    }
+
     link.filter(function (d) {
       if (d.source === current) {
         rightLinks.push(d)
-        d.target.rightLinks.forEach(function(r) {
-          rightLinks.push(r)
-        })
+        getRightLinks(d)
       }
       if (d.target === current) {
         leftLinks.push(d)
-        d.source.leftLinks.forEach(function(r) {
-          leftLinks.push(r)
-        })
+        getLeftLinks(d)
       }
     })
     
@@ -557,40 +571,52 @@ function update () {
 }
 
 var exampleNodes = [
-  {"type":"XXX","id":"x","parent":null,"name":"Open All Applicants path"},
+  {"type":"INITIALIZATION","id":"all","parent":null,"name":"Open All Applicants path"},
 
-  {"type":"QQQ","id":"q","parent":null,"name":"archiving an active list"},
-  {"type":"WWW","id":"w","parent":null,"name":"archiving other lists"},
-  {"type":"RRR","id":"r","parent":null,"name":"deleting an active list"},
-  {"type":"FFF","id":"f","parent":null,"name":"deleting other lists"},
+  {"type":"ACTION","id":"aa","parent":null,"name":"archiving an active list"},
+  {"type":"ACTION","id":"ao","parent":null,"name":"archiving other lists"},
+  {"type":"ACTION","id":"da","parent":null,"name":"deleting an active list"},
+  {"type":"ACTION","id":"do","parent":null,"name":"deleting other lists"},
 
-  {"type":"EEE","id":"e","parent":null,"name":"do something"},
-  {"type":"GGG","id":"g","parent":null,"name":"do something else"},
+  {"type":"CONFIRMATION","id":"action1","parent":null,"name":"do something"},
+  {"type":"CONFIRMATION","id":"action2","parent":null,"name":"do something else"},
 
-  {"type":"TTT","id":"t","parent":null,"name":"something happen"},
-  {"type":"YYY","id":"y","parent":null,"name":"something else happen"},
+  {"type":"OUTCOME","id":"outcome1","parent":null,"name":"something happen"},
+  {"type":"OUTCOME","id":"outcome2","parent":null,"name":"something else happen"},
+
+  {"type":"COMPLETED","id":"outcome3","parent":null,"name":"then outcome 1 appears"},
+  {"type":"COMPLETED","id":"outcome4","parent":null,"name":"then outcome 2 appears"},
+  {"type":"COMPLETED","id":"outcome5","parent":null,"name":"then outcome 3 appears"},
+  {"type":"COMPLETED","id":"outcome6","parent":null,"name":"then outcome 4 appears"},
 ]
 
 var exampleLinks = [
-  {"source":"x", "target":"q", "value": 1},
-  {"source":"x", "target":"w", "value": 1},
-  {"source":"x", "target":"r", "value": 1},
-  {"source":"x", "target":"f", "value": 1},
+  {"source":"all", "target":"aa", "value": 1},
+  {"source":"all", "target":"ao", "value": 1},
+  {"source":"all", "target":"da", "value": 1},
+  {"source":"all", "target":"do", "value": 1},
 
-  {"source":"q", "target":"e", "value": 1},
-  {"source":"w", "target":"e", "value": 1},
-  {"source":"r", "target":"e", "value": 1},
-  {"source":"f", "target":"e", "value": 1},
+  {"source":"aa", "target":"action1", "value": 1},
+  {"source":"ao", "target":"action1", "value": 1},
+  {"source":"da", "target":"action1", "value": 1},
+  {"source":"do", "target":"action1", "value": 1},
 
-  {"source":"q", "target":"g", "value": 1},
-  {"source":"w", "target":"g", "value": 1},
-  {"source":"r", "target":"g", "value": 1},
-  {"source":"f", "target":"g", "value": 1},
+  {"source":"aa", "target":"action2", "value": 1},
+  {"source":"ao", "target":"action2", "value": 1},
+  {"source":"da", "target":"action2", "value": 1},
+  {"source":"do", "target":"action2", "value": 1},
   
-  {"source":"e", "target":"t", "value": 1},
-  {"source":"g", "target":"t", "value": 1},
-  {"source":"e", "target":"y", "value": 1},
-  {"source":"g", "target":"y", "value": 1},
+  {"source":"action1", "target":"outcome1", "value": 1},
+  {"source":"action2", "target":"outcome1", "value": 1},
+  {"source":"action1", "target":"outcome2", "value": 1},
+  {"source":"action2", "target":"outcome2", "value": 1},
+  
+  {"source":"outcome1", "target":"outcome3", "value": 1},
+  {"source":"outcome1", "target":"outcome4", "value": 1},
+  {"source":"outcome1", "target":"outcome5", "value": 1},
+  {"source":"outcome2", "target":"outcome4", "value": 1},
+  {"source":"outcome2", "target":"outcome5", "value": 1},
+  {"source":"outcome2", "target":"outcome6", "value": 1},
 ]
 
 
