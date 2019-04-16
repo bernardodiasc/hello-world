@@ -10,6 +10,7 @@ The intent here is a user flow vizualization.
 
 ## Resources
 
+- https://uxdesign.cc/the-biggest-wtf-in-design-right-now-87139f367d66
 - https://github.com/react-d3-library/react-d3-library
 - Bi-directional hierarchical sankey diagram http://bl.ocks.org/Neilos/584b9a5d44d5fe00f779
 - playing with react-d3 https://codesandbox.io/s/o5m8o0lqq6
@@ -36,4 +37,4 @@ The intent here is a user flow vizualization.
 - Sankey experiment http://bl.ocks.org/d3noob/raw/5028304/
 - https://www.data-to-viz.com/graph/sankey.html
 - https://www.data-to-viz.com/graph/chord.html
-
+- “Deep read about Sankey diagram” https://www.azavea.com/blog/2017/08/09/six-sankey-diagram-tool/ 
