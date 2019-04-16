@@ -257,17 +257,29 @@ function update () {
     const leftNodes = []
     let currentNode = {}
 
+    function getRightNodes(element) {
+      if (element.rightLinks.length > 0) {
+        element.rightLinks.forEach(function(rightLink) {
+          rightNodes.push(rightLink.target)
+          getRightNodes(rightLink.target)
+        })
+      }
+    }
+
+    function getLeftNodes(element) {
+      if (element.leftLinks.length > 0) {
+        element.leftLinks.forEach(function(leftLink) {
+          leftNodes.push(leftLink.source)
+          getLeftNodes(leftLink.source)
+        })
+      }
+    }
+    
     node.filter(function (d) {
       if (d.name === current.name) {
         currentNode = d
-
-        current.rightLinks.forEach(function(r) {
-          rightNodes.push(r.target)
-        })
-        
-        current.leftLinks.forEach(function(r) {
-          leftNodes.push(r.source)
-        })
+        getRightNodes(d)
+        getLeftNodes(d)
       }
     })
 
@@ -583,6 +595,8 @@ var exampleNodes = [
 
   {"type":"OUTCOME","id":"outcome1","parent":null,"name":"something happen"},
   {"type":"OUTCOME","id":"outcome2","parent":null,"name":"something else happen"},
+  {"type":"OUTCOME","id":"outcome7","parent":null,"name":"another thing happen"},
+  {"type":"OUTCOME","id":"outcome8","parent":null,"name":"yet another thing happen"},
 
   {"type":"COMPLETED","id":"outcome3","parent":null,"name":"then outcome 1 appears"},
   {"type":"COMPLETED","id":"outcome4","parent":null,"name":"then outcome 2 appears"},
@@ -610,6 +624,11 @@ var exampleLinks = [
   {"source":"action2", "target":"outcome1", "value": 1},
   {"source":"action1", "target":"outcome2", "value": 1},
   {"source":"action2", "target":"outcome2", "value": 1},
+  {"source":"action1", "target":"outcome7", "value": 1},
+  {"source":"action1", "target":"outcome8", "value": 1},
+
+  // {"source":"outcome7", "target":"all", "value": 1},
+  // {"source":"outcome8", "target":"all", "value": 1},
   
   {"source":"outcome1", "target":"outcome3", "value": 1},
   {"source":"outcome1", "target":"outcome4", "value": 1},
