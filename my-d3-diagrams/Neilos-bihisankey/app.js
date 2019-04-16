@@ -212,28 +212,83 @@ function update () {
     restoreLinksAndNodes();
   }
 
+  function getConnectedLinks(current) {
+    const rightLinks = []
+    const leftLinks = []
+
+    link.filter(function (d) {
+      if (d.source === current) {
+        rightLinks.push(d)
+        d.target.rightLinks.forEach(function(r) {
+          rightLinks.push(r)
+        })
+      }
+      if (d.target === current) {
+        leftLinks.push(d)
+        d.source.leftLinks.forEach(function(r) {
+          leftLinks.push(r)
+        })
+      }
+    })
+    
+    return {
+      connectedLinks: [...rightLinks, ...leftLinks],
+      rightLinks,
+      leftLinks
+    }
+  }
+
+  function getConnectedNodes(current) {
+    const rightNodes = []
+    const leftNodes = []
+    let currentNode = {}
+
+    node.filter(function (d) {
+      if (d.name === current.name) {
+        currentNode = d
+
+        current.rightLinks.forEach(function(r) {
+          rightNodes.push(r.target)
+        })
+        
+        current.leftLinks.forEach(function(r) {
+          leftNodes.push(r.source)
+        })
+      }
+    })
+
+    return {
+      connectedNodes: [currentNode, ...rightNodes, ...leftNodes],
+      rightNodes,
+      leftNodes
+    }
+  }
+
   function highlightConnected(g) {
-    link.filter(function (d) { return d.source === g; })
+    const { rightLinks, leftLinks } = getConnectedLinks(g)
+    link.filter(function (d) { return rightLinks.indexOf(d) >= 0 })
       .style("marker-end", function () { return 'url(#arrowHeadInflow)'; })
       .style("stroke", OUTFLOW_COLOR)
       .style("opacity", OPACITY.LINK_DEFAULT);
 
-    link.filter(function (d) { return d.target === g; })
+    link.filter(function (d) { return leftLinks.indexOf(d) >= 0 })
       .style("marker-end", function () { return 'url(#arrowHeadOutlow)'; })
       .style("stroke", INFLOW_COLOR)
       .style("opacity", OPACITY.LINK_DEFAULT);
   }
 
   function fadeUnconnected(g) {
-    link.filter(function (d) { return d.source !== g && d.target !== g; })
+    const { connectedLinks } = getConnectedLinks(g)
+    const { connectedNodes } = getConnectedNodes(g)
+
+    link.filter(function (d) { return connectedLinks.indexOf(d) < 0 })
       .style("marker-end", function () { return 'url(#arrowHead)'; })
       .transition()
         .duration(TRANSITION_DURATION)
         .style("opacity", OPACITY.LINK_FADED);
 
-    node.filter(function (d) {
-      return (d.name === g.name) ? false : !biHiSankey.connected(d, g);
-    }).transition()
+    node.filter(function (d) { return connectedNodes.indexOf(d) < 0 })
+      .transition()
       .duration(TRANSITION_DURATION)
       .style("opacity", OPACITY.NODE_FADED);
   }
@@ -537,6 +592,7 @@ var exampleLinks = [
   {"source":"e", "target":"y", "value": 1},
   {"source":"g", "target":"y", "value": 1},
 ]
+
 
 /*
 var exampleNodes = [
